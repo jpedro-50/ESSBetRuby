@@ -3,7 +3,7 @@ class User
 
   @@numberOfUsers=0
 
-  def initialize(name, email, password)
+  def initialize(name="", email="", password="")
     @name = name
     @email = email
     @password = password

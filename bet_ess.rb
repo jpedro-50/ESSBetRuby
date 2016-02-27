@@ -1,6 +1,7 @@
 require_relative './facade/system'
 
 
-@system = System.new
-@system.insertUser
-#@system.listUsers
+system = System.new
+system.insertUser
+system.updateUser
+system.showUser

@@ -9,7 +9,7 @@ class UserController < Controller
     @data = gets.split(',')
     @model = User.new(@data[0], @data[1], @data[2])
     @view.show(@model.name, @model.email, @model.password)
-    return @user
+    return @model
   end
 
   def update
@@ -18,10 +18,7 @@ class UserController < Controller
     @model.name =@data[0]
     @model.email =@data[1]
     @model.password =@data[2]
-  end
-
-  def remove
-
+    return @model
   end
 
   def read

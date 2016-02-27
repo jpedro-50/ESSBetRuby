@@ -1,5 +1,5 @@
 class Observer
-  def update
-    puts ""
+  def update(message)
+    puts message
   end
 end

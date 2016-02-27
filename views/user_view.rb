@@ -16,5 +16,8 @@ class UserView
     puts "Insira os novos dados {nome,email,password}"
   end
 
+  def search
+    puts "Insira a chave"
+  end
 
 end
