@@ -1,4 +1,4 @@
-module SystemUsers
+module APICollection
 
   def find(collection)
     key = gets()
@@ -14,6 +14,12 @@ module SystemUsers
 
   def rem(collection, key)
     collection.delete[key]
+  end
+
+  def get(collection,key)
+    if (collection.has_key?(key))
+      return collection[key]
+    end
   end
 
 end

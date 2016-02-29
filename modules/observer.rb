@@ -1,4 +1,4 @@
-class Observer
+module Observer
   def update(message)
     puts message
   end

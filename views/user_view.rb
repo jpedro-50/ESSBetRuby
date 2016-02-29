@@ -17,7 +17,7 @@ class UserView
   end
 
   def search
-    puts "Insira a chave"
+    puts "Insira a nome do utilizador"
   end
 
 end

@@ -1,5 +1,8 @@
+require_relative '../modules/observer'
+
 class User
   attr_accessor :name, :email, :password
+  include Observer
 
   @@numberOfUsers=0
 
@@ -7,8 +10,8 @@ class User
     @name = name
     @email = email
     @password = password
-
   end
+
 
 
 

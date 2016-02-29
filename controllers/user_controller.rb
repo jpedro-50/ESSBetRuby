@@ -25,4 +25,5 @@ class UserController < Controller
     @view.show(@model.name, @model.email, @model.password)
   end
 
+
 end
