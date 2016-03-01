@@ -3,7 +3,7 @@ require_relative '../modules/subject'
 class Game
   attr_reader :id
   include Subject
-  attr_accessor :odd, :date, :team1, :team2, :observers
+  attr_accessor :odd, :date, :team1, :team2, :observers,:state
 
 
   def initialize(id,team1, team2, date, odd)
@@ -27,12 +27,10 @@ class Game
   end
 
 
-  def finishGame
-    notifyObservers
-  end
-
   def update
     notifyObservers
   end
+
+
 
 end

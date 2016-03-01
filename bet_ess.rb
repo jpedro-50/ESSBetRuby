@@ -6,15 +6,20 @@ system = System.new
 
 ### USERS ####
 system.insertUser
-#system.updateUser
-#system.showUser
+system.insertUser
+
+system.updateUser
+system.showUser
 
 
 ### GAMES ###
 system.insertGame
-#system.showGame
+system.showGame
 
 ### BETS ###
 system.insertBet
+system.insertBet
+system.updateGame
+
 
 ### BOOKIES ###

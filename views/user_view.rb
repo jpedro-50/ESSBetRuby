@@ -20,4 +20,8 @@ class UserView
     puts "Insira a nome do utilizador"
   end
 
+  def notification(message)
+    puts message
+  end
+
 end

@@ -4,7 +4,7 @@ class GameView
   end
 
   def update
-    puts "Insira os novos dados do Jogo {Id,Equipa1,Equipa2,data,estado}"
+    puts "Insira os novos dados do Jogo {Equipa1,Equipa2,data,estado}"
   end
 
   def show(id,team1,team2,date)
@@ -16,7 +16,7 @@ class GameView
   end
 
   def remove
-
+    puts "Insira o identificador do jogo"
   end
 
   def search

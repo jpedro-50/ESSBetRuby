@@ -6,7 +6,9 @@ module Subject
   end
 
   def addObserver(observer)
+
     @observers.push(observer)
+
   end
 
   def removeObserver(observer)
@@ -14,8 +16,9 @@ module Subject
   end
 
   def notifyObservers
+
     @observers.each do |observer|
-      observer.update(self)
+      observer.update(observer.notification)
     end
   end
 end

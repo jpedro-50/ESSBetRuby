@@ -1,6 +1,7 @@
 require_relative '../models/game'
 require_relative 'controller'
 require_relative '../controllers/odd_controller'
+require_relative '../controllers/user_controller'
 require_relative '../views/odd_view'
 
 class GameController < Controller
@@ -22,6 +23,8 @@ class GameController < Controller
   @model.date = data[2]
   @model.state = data[3]
   @model.odd = OddController.new(OddView.new,@model.odd).update
+  @model.update
+  return @model
   end
 
   def read
@@ -32,6 +35,10 @@ class GameController < Controller
 
   def addBet(bet)
   @model.addBet(bet.user,bet)
+  end
+
+  def removeBet(user,gameId)
+
   end
 
 

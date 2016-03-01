@@ -12,7 +12,8 @@ class User
     @password = password
   end
 
-
-
+  def notification
+    puts "Jogo terminou"
+  end
 
 end

@@ -1,5 +1,5 @@
 module Observer
   def update(message)
-    puts message
+    return message
   end
 end

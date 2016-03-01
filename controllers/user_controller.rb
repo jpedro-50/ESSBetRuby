@@ -8,7 +8,6 @@ class UserController < Controller
     @view.create
     @data = gets.split(',')
     @model = User.new(@data[0], @data[1], @data[2])
-    @view.show(@model.name, @model.email, @model.password)
     return @model
   end
 
@@ -25,5 +24,8 @@ class UserController < Controller
     @view.show(@model.name, @model.email, @model.password)
   end
 
+  def showNotification
+   @view.notification(@model.update())
+  end
 
 end

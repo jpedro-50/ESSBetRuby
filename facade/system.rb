@@ -34,8 +34,8 @@ class System
     game = APICollection.get(@games,bet.gameId)
 
     if(game && user)
+
       bet.user = user
-      bet.inspect
       GameController.new(GameView.new,game).addBet(bet)
       return true
     end
@@ -47,7 +47,7 @@ class System
     userView = UserView.new
     userController = UserController.new(userView)
     user = userController.create
-    puts APICollection.put(@users, user.name, user)
+    return APICollection.put(@users, user.name, user)
   end
 
   def showUser
@@ -73,9 +73,10 @@ class System
 
 
   def updateUser
+    userView = UserView.new
+    userView.search
     model = APICollection.find(@users)
     if (model)
-      userView = UserView.new
       userController = UserController.new(userView, model)
       user = userController.update
       APICollection.put(@users, user.name, user)
@@ -109,7 +110,7 @@ class System
     game = APICollection.find(@games)
     if (game)
       game = GameController.new(gameView, game).update
-      #APICollection.put(@games,game.id,game)
+      APICollection.put(@games,game.id,game)
       return true
     end
     return false
