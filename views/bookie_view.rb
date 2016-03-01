@@ -19,4 +19,8 @@ class BookieView
   puts 'Insira o nome do Bookie'
   end
 
+  def search
+    puts 'Insira o nome do Bookie'
+  end
+
 end

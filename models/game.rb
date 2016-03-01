@@ -3,10 +3,10 @@ require_relative '../modules/subject'
 class Game
   attr_reader :id
   include Subject
-  attr_accessor :odd, :date, :team1, :team2, :observers,:state
+  attr_accessor :odd, :date, :team1, :team2, :observers, :state, :bookie
 
 
-  def initialize(id,team1, team2, date, odd)
+  def initialize(id, team1, team2, date, odd, bookie)
     super()
     @id = id
     @team1 = team1
@@ -15,9 +15,10 @@ class Game
     @odd = odd
     @bets = Array.new
     @state = 0
+    @bookie = bookie
   end
 
-  def addBet(user,bet)
+  def addBet(user, bet)
     @bets << bet
     addObserver(user)
   end
@@ -26,11 +27,17 @@ class Game
     @bets.delete(bet)
   end
 
+  def followGame(bookie)
+    addObserver(bookie)
+  end
+
+  def unfollowGame(bookie)
+    removeObserver(bookie)
+  end
 
   def update
     notifyObservers
   end
-
 
 
 end

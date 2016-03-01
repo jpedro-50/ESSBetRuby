@@ -1,6 +1,6 @@
 class GameView
   def create
-    puts "Insira os dados do Jogo {Id,Equipa1,Equipa2,data}"
+    puts "Insira os dados do Jogo {Identificador,Equipa1,Equipa2,data,IdentificadorBookie}"
   end
 
   def update
