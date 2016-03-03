@@ -10,7 +10,6 @@ require_relative '../views/bet_view'
 require_relative '../views/bookie_view'
 
 
-
 require_relative '../modules/APICollection'
 
 
@@ -32,24 +31,46 @@ class System
   def insertBookie
     bookieView = BookieView.new
     bookie = BookieController.new(bookieView).create
-    if(bookie)
-      APICollection.put(@bookies,bookie.name,bookie)
+    if (bookie)
+      APICollection.put(@bookies, bookie.name, bookie)
       return true
     end
     return false
   end
 
   def updateBookie
-
+    bookieView = BookieView.new
+    bookieView.search
+    bookie = APICollection.find(@bookies)
+    if (bookie)
+      bookie = BookieController.new(bookieView, bookie).update
+      APICollection.put(@bookie, bookie, bookie)
+      return true
+    end
+    return false
   end
 
   def removeBookie
-
+    bookieView = BookieView
+    bookieView.search
+    bookie = APICollection.find(@bookies)
+    if (bookie)
+      BookieController.new(bookieView, bookie).remove
+      return true
+    end
+    return false
   end
 
 
   def showBookie
-
+    bookieView = BookieView
+    bookieView.search
+    bookie = APICollection.find(@bookies)
+    if (bookie)
+      BookieController.new(bookieView, bookie).read
+      return true
+    end
+    return false
   end
 
   def insertBet
@@ -57,13 +78,13 @@ class System
     betController = BetController.new(betView)
     bet = betController.create
 
-    user =  APICollection.get(@users,bet.user)
-    game = APICollection.get(@games,bet.gameId)
+    user = APICollection.get(@users, bet.user)
+    game = APICollection.get(@games, bet.gameId)
 
-    if(game && user)
+    if (game && user)
 
       bet.user = user
-      GameController.new(GameView.new,game).addBet(bet)
+      GameController.new(GameView.new, game).addBet(bet)
       return true
     end
     return false
@@ -116,10 +137,8 @@ class System
     gameView = GameView.new
     gameController = GameController.new(gameView)
     game = gameController.create
-    bookie = APICollection.get(@bookies,game.bookie)
-    p bookie
-    p @bookies
-    if(bookie)
+    bookie = APICollection.get(@bookies, game.bookie)
+    if (bookie)
       game.bookie = bookie
       return APICollection.put(@games, game.id, game)
     end
@@ -144,7 +163,7 @@ class System
     game = APICollection.find(@games)
     if (game)
       game = GameController.new(gameView, game).update
-      APICollection.put(@games,game.id,game)
+      APICollection.put(@games, game.id, game)
       return true
     end
     return false
@@ -163,8 +182,8 @@ class System
     gameView.search
     game = APICollection.find(@bookies)
 
-    if(game && bookie)
-      GameController.new(gameView,game).follow(bookie)
+    if (game && bookie)
+      GameController.new(gameView, game).follow(bookie)
       return true
     end
 

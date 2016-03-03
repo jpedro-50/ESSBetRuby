@@ -25,7 +25,7 @@ class UserController < Controller
   end
 
   def showNotification
-   @view.notification(@model.update())
+   @view.notification(@model.update(@model.notification))
   end
 
 end

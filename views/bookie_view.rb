@@ -23,4 +23,9 @@ class BookieView
     puts 'Insira o nome do Bookie'
   end
 
+  def notification(message)
+    puts message
+  end
+
+
 end

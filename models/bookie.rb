@@ -12,7 +12,7 @@ class Bookie
   end
 
   def notification
-    return "Jogo terminou"
+    return "O jogo que estava a seguir terminou"
   end
 
 

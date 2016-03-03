@@ -23,4 +23,7 @@ class BookieController < Controller
     @model = Bookie.new(data[0], data[1])
   end
 
+  def showNotification
+    @view.notification(@model.notification)
+  end
 end

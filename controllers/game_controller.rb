@@ -13,7 +13,7 @@ class GameController < Controller
     oddView = OddView.new
     oddController = OddController.new(oddView)
     odd = oddController.create
-    return Game.new(data[0], data[1], data[2], data[3], odd, data[4])
+    return Game.new(data[0], data[1], data[2], data[3], odd, data[4].strip!)
   end
 
   def update
