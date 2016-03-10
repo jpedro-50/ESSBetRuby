@@ -35,7 +35,10 @@ class Game
     removeObserver(bookie)
   end
 
-  def update
+  def update(result)
+    for bet in @bets
+
+    end
     notifyObservers
   end
 

@@ -1,23 +1,27 @@
 class UserView
 
-  def show(name, email, password)
+  def show(name, email, password,profit)
     puts "--------------------"
     puts "name => "+name
     puts "email => "+email
     puts "password => "+password
+    puts "profit =>" +profit
     puts "--------------------"
   end
 
   def create
-    puts "Insira os dados {nome,email,password}"
+    puts " ---- Inserir Utilizador ----\n"
+    puts "Insira os dados {nome,email,password,profit}"
   end
 
   def update
-    puts "Insira os novos dados {nome,email,password}"
+    puts " ---- Actualizar Utilizador ----\n"
+    puts "Insira os novos dados {nome,email,password,profit}"
   end
 
   def search
-    puts "Insira a nome do utilizador"
+    puts " ---- Procurar Utilizador ----\n"
+    puts "Insira a {nome} do utilizador"
   end
 
   def notification(message)

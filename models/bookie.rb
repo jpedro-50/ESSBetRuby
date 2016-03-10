@@ -7,6 +7,7 @@ class Bookie
   include Observer
 
   def initialize(name='', password='')
+    super()
     @name = name
     @password = password
   end
@@ -14,6 +15,5 @@ class Bookie
   def notification
     return "O jogo que estava a seguir terminou"
   end
-
 
 end

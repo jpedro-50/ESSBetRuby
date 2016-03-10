@@ -8,4 +8,5 @@ class Bet
     @bet = bet
   end
 
+
 end

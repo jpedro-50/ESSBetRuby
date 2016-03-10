@@ -14,7 +14,7 @@ class BetController < Controller
   end
 
   def read
-
+  @view.show(@model.user.username,@model.game,@model.value,@model.odd)
   end
 
   def remove

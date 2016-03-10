@@ -6,9 +6,7 @@ module Subject
   end
 
   def addObserver(observer)
-
-    @observers.push(observer)
-
+   @observers.push(observer)
   end
 
   def removeObserver(observer)

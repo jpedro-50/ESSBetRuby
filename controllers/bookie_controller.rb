@@ -24,6 +24,6 @@ class BookieController < Controller
   end
 
   def showNotification
-    @view.notification(@model.notification)
+    @view.notification(@model.update(@model.notification))
   end
 end

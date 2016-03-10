@@ -24,7 +24,7 @@ class GameController < Controller
     @model.date = data[2]
     @model.state = data[3]
     @model.odd = OddController.new(OddView.new, @model.odd).update
-    @model.update
+    @model.update(@model.state)
     return @model
   end
 
@@ -44,6 +44,7 @@ class GameController < Controller
 
   def follow(bookie)
     @model.followGame(bookie)
+    return @model
   end
 
   def unfollow(bookie)

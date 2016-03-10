@@ -27,6 +27,7 @@ class System
     @bookies = Hash.new
   end
 
+  ### CRUD BOOKIES ###
 
   def insertBookie
     bookieView = BookieView.new
@@ -73,6 +74,9 @@ class System
     return false
   end
 
+  ### CRUD BETS ###
+
+
   def insertBet
     betView = BetView.new
     betController = BetController.new(betView)
@@ -82,13 +86,21 @@ class System
     game = APICollection.get(@games, bet.gameId)
 
     if (game && user)
-
+      UserController.new(UserView.new,user).cashOut(bet.value)
       bet.user = user
+
       GameController.new(GameView.new, game).addBet(bet)
       return true
     end
     return false
   end
+
+  def showBet
+    betView = BetView.new
+    betController = BetController.new(betView,bet)
+  end
+
+  ### CRUD USERS ###
 
 
   def insertUser
@@ -133,6 +145,9 @@ class System
     return false
   end
 
+  ### CRUD GAMES ###
+
+
   def insertGame
     gameView = GameView.new
     gameController = GameController.new(gameView)
@@ -140,7 +155,8 @@ class System
     bookie = APICollection.get(@bookies, game.bookie)
     if (bookie)
       game.bookie = bookie
-      return APICollection.put(@games, game.id, game)
+      gameController = GameController.new(gameView, game)
+      return APICollection.put(@games, game.id, gameController.follow(game.bookie))
     end
     return false
   end
@@ -173,6 +189,7 @@ class System
 
   end
 
+  ###  ###
 
   def follow
     bookieView = BookieView
@@ -186,12 +203,11 @@ class System
       GameController.new(gameView, game).follow(bookie)
       return true
     end
-
-
+    return false
   end
 
-  def unfollow
-
+  def unFollow
+  return true
   end
 
 end

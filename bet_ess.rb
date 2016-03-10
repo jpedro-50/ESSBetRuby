@@ -7,9 +7,6 @@ system = System.new
 ### USERS ####
 system.insertUser
 system.insertUser
-
-
-
 #system.updateUser
 #system.showUser
 
@@ -24,6 +21,12 @@ system.insertGame
 ### BETS ###
 system.insertBet
 system.insertBet
+system.showBet
+
+
+### UPDATE GAME ###
 system.updateGame
+system.showUser
+system.showGame
 
 

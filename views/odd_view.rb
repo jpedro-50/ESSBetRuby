@@ -1,5 +1,6 @@
 class OddView
   def create
+    puts " ---- Inserir Odd ---\n"
     puts "Insira a Odd {odd1,oddx,odd2}"
   end
 
@@ -11,6 +12,7 @@ class OddView
   end
 
   def update
+    puts " ---- Actualizar Odd ----\n"
     puts "Insira a nova Odd {odd1,oddx,odd2}"
 
   end
