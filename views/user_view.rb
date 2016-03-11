@@ -10,17 +10,17 @@ class UserView
   end
 
   def create
-    puts " ---- Inserir Utilizador ----\n"
+    puts "\n ---- Inserir Utilizador ----\n"
     puts "Insira os dados {nome,email,password,profit}"
   end
 
   def update
-    puts " ---- Actualizar Utilizador ----\n"
+    puts "\n ---- Actualizar Utilizador ----\n"
     puts "Insira os novos dados {nome,email,password,profit}"
   end
 
   def search
-    puts " ---- Procurar Utilizador ----\n"
+    puts "\n ---- Procurar Utilizador ----\n"
     puts "Insira a {nome} do utilizador"
   end
 
