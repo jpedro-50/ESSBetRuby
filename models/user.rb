@@ -1,10 +1,10 @@
 require_relative '../modules/observer'
-
+require_relative '../modules/validation'
+include Observer
+include Validation
 class User
   attr_accessor :name, :email, :password, :profit
-  include Observer
 
-  @@numberOfUsers=0
 
   def initialize(name="", email="", password="", profit)
     @name = name
@@ -13,15 +13,26 @@ class User
     @profit = profit
   end
 
+  def validateInput
+    res = Validation.validateEmail(@email) && Validation.validatePassword(@password)
+    if res == nil
+      return false
+    else
+      return true
+    end
+  end
+
   def notification
-    return "Jogo terminou"
+    return "O Jogo em que apostou terminou!"
   end
 
   def cashIn(value)
-    @profit+=value
+    @profit = @profit + value.to_f
   end
 
   def cashOut(value)
-    @profit-=value
+    @profit = @profit - value.to_f
   end
 end
+
+

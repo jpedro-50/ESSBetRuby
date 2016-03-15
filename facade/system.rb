@@ -86,7 +86,7 @@ class System
     game = APICollection.get(@games, bet.gameId)
 
     if (game && user)
-      UserController.new(UserView.new,user).cashOut(bet.value)
+      UserController.new(UserView.new, user).cashOut(bet.value)
       bet.user = user
 
       GameController.new(GameView.new, game).addBet(bet)
@@ -96,8 +96,20 @@ class System
   end
 
   def showBet
-    betView = BetView.new
-    betController = BetController.new(betView,bet)
+    gameView = GameView.new.search
+    game = APICollection.find(@games)
+    UserView.new.search
+    user = APICollection.find(@users)
+    if (game && user)
+      bets = GameController.new(gameView, game).getBetsByUser(user)
+      betView=BetView.new
+      betController=BetController.new(betView)
+      for bet in bets
+        betController.setModel(bet)
+        betController.read
+      end
+    end
+
   end
 
   ### CRUD USERS ###
@@ -107,7 +119,11 @@ class System
     userView = UserView.new
     userController = UserController.new(userView)
     user = userController.create
-    return APICollection.put(@users, user.name, user)
+    if (user)
+      return APICollection.put(@users, user.name, user)
+    else
+      return false
+    end
   end
 
   def showUser
@@ -207,7 +223,7 @@ class System
   end
 
   def unFollow
-  return true
+    return true
   end
 
 end

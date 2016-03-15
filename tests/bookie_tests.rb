@@ -5,6 +5,7 @@ include APICollection
 
 class BookieTests
 
+  attr_accessor :bookies
   @bookies={}
 
   def initialize

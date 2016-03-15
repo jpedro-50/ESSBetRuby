@@ -6,7 +6,7 @@ class BetController < Controller
   def create
     @view.create
     data = gets().split(',')
-    return Bet.new(data[0],data[1],data[2],data[3])
+    return Bet.new(data[0],data[1],data[2].to_f,data[3],data[4])
   end
 
   def update
@@ -14,7 +14,7 @@ class BetController < Controller
   end
 
   def read
-  @view.show(@model.user.username,@model.game,@model.value,@model.odd)
+  @view.show(@model.user.name,@model.gameId,@model.value.to_s,@model.odd)
   end
 
   def remove

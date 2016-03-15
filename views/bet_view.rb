@@ -1,7 +1,7 @@
 class BetView
   def create
     puts " ---- Inserir Aposta ----"
-    puts "Insira os dados {NomeUtilizador,IdJogo,valor,resultado}"
+    puts "Insira os dados {NomeUtilizador,IdJogo,valor,resultado,odd}"
   end
 
 

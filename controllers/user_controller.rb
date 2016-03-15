@@ -7,9 +7,13 @@ class UserController < Controller
   def create
     @view.create
     @data = gets.split(',')
-    @model = User.new(@data[0], @data[1], @data[2],@data[3])
-    return @model
-  end
+    @model = User.new(@data[0], @data[1], @data[2], @data[3].to_f)
+    if (@model.validateInput)
+      return @model
+    else
+      return nil
+    end
+end
 
   def update
     @view.update
@@ -17,16 +21,16 @@ class UserController < Controller
     @model.name =@data[0]
     @model.email =@data[1]
     @model.password =@data[2]
-    @model.profit = @data[3]
+    @model.profit = @data[3].to_f
     return @model
   end
 
   def read
-    @view.show(@model.name, @model.email, @model.password,@model.profit)
+    @view.show(@model.name, @model.email, @model.password, @model.profit.to_s)
   end
 
   def showNotification
-   @view.notification(@model.update(@model.notification))
+    @view.notification(@model.update(@model.notification))
   end
 
   def cashOut(value)

@@ -7,8 +7,8 @@ system = System.new
 ### USERS ####
 system.insertUser
 system.insertUser
-#system.updateUser
-#system.showUser
+system.updateUser
+system.showUser
 
 
 ### BOOKIES ###
@@ -16,7 +16,7 @@ system.insertBookie
 
 ### GAMES ###
 system.insertGame
-#system.showGame
+system.showGame
 
 ### BETS ###
 system.insertBet
