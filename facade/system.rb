@@ -17,6 +17,7 @@ include APICollection
 
 class System
 
+  attr_accessor :users, :bookies, :games
   @users={}
   @bookies={}
   @games={}
@@ -45,7 +46,7 @@ class System
     bookie = APICollection.find(@bookies)
     if (bookie)
       bookie = BookieController.new(bookieView, bookie).update
-      APICollection.put(@bookie, bookie, bookie)
+      APICollection.put(@bookies, bookie, bookie)
       return true
     end
     return false
@@ -155,10 +156,21 @@ class System
     if (model)
       userController = UserController.new(userView, model)
       user = userController.update
-      APICollection.put(@users, user.name, user)
-      return true
+      if (user)
+        APICollection.put(@users, user.name, user)
+        return true
+      end
     end
     return false
+  end
+
+  def listUsers
+    userView = UserView.new
+    userController = UserController.new(userView)
+    for user in @users
+      userController.setModel(user)
+      userController.read
+    end
   end
 
   ### CRUD GAMES ###
@@ -207,6 +219,8 @@ class System
 
   ###  ###
 
+
+
   def follow
     bookieView = BookieView.new
     bookieView.search
@@ -235,5 +249,6 @@ class System
     end
     return false
   end
+
 
 end

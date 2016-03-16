@@ -1,5 +1,9 @@
 require_relative './facade/system'
+require_relative 'menu/menu'
 
+#menu = Menu.new
+
+#menu.home
 
 system = System.new
 

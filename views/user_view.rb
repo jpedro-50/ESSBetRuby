@@ -28,4 +28,8 @@ class UserView
     puts message
   end
 
+  def login
+    puts "Insira os dados {username,password}"
+  end
+
 end

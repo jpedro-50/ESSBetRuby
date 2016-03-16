@@ -22,7 +22,10 @@ end
     @model.email =@data[1]
     @model.password =@data[2]
     @model.profit = @data[3].to_f
-    return @model
+    if(@model.validateInput)
+      return @model
+    end
+    return nil
   end
 
   def read
