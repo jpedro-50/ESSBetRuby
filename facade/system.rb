@@ -208,7 +208,7 @@ class System
   ###  ###
 
   def follow
-    bookieView = BookieView
+    bookieView = BookieView.new
     bookieView.search
     bookie = APICollection.find(@bookies)
     gameView = GameView.new
@@ -223,7 +223,17 @@ class System
   end
 
   def unFollow
-    return true
+    bookieView = BookieView.new
+    bookieView.search
+    bookie = APICollection.find(@bookies)
+    gameView = GameView.new
+    gameView.search
+    game = APICollection.find(@bookies)
+    if (game && bookie)
+      GameController.new(gameView, game).unFollow(bookie)
+      return true
+    end
+    return false
   end
 
 end
